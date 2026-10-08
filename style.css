@@ -1,6 +1,79 @@
-/* =========================
-   RESET
-========================= */
+/* =========================================================
+   ADVANCED CSS3 & RESPONSIVE PORTFOLIO
+   ========================================================= */
+
+
+/* =========================================================
+   1. CSS VARIABLES - LIGHT THEME
+   ========================================================= */
+
+:root {
+    --primary: #111827;
+    --primary-light: #1f2937;
+
+    --text: #222222;
+    --text-light: #555555;
+
+    --background: #ffffff;
+    --surface: #f3f4f6;
+
+    --border: #dddddd;
+
+    --accent: #0056b3;
+    --accent-hover: #003f82;
+
+    --focus: #ffbf47;
+
+    --white: #ffffff;
+
+    --max-width: 1100px;
+
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 20px;
+    --space-lg: 40px;
+    --space-xl: 70px;
+
+    --radius: 10px;
+
+    --shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.14);
+
+    --transition: 0.25s ease;
+}
+
+
+/* =========================================================
+   2. DARK THEME VARIABLES
+   ========================================================= */
+
+[data-theme="dark"] {
+    --primary: #e5e7eb;
+    --primary-light: #d1d5db;
+
+    --text: #f3f4f6;
+    --text-light: #d1d5db;
+
+    --background: #111827;
+    --surface: #1f2937;
+
+    --border: #374151;
+
+    --accent: #60a5fa;
+    --accent-hover: #93c5fd;
+
+    --focus: #fbbf24;
+
+    --white: #111827;
+
+    --shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================================================
+   3. RESET
+   ========================================================= */
 
 * {
     margin: 0;
@@ -15,60 +88,96 @@ html {
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #222;
-    background-color: #ffffff;
+
+    color: var(--text);
+    background-color: var(--background);
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
 }
 
 
-/* =========================
-   GENERAL
-========================= */
+/* =========================================================
+   4. GENERAL
+   ========================================================= */
 
 .container {
-    width: min(90%, 1100px);
-    margin: auto;
+    width: min(90%, var(--max-width));
+    margin-inline: auto;
 }
 
 section {
-    padding: 70px 0;
+    padding: var(--space-xl) 0;
 }
 
 h1,
 h2,
 h3 {
     line-height: 1.2;
-    margin-bottom: 20px;
+    margin-bottom: var(--space-md);
+}
+
+h1 {
+    font-size: clamp(2.2rem, 8vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+h3 {
+    font-size: 1.4rem;
 }
 
 p {
     margin-bottom: 15px;
+    color: var(--text-light);
 }
 
 a {
-    color: #0056b3;
+    color: var(--accent);
+    transition: color var(--transition);
 }
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+
+/* =========================================================
+   5. ACCESSIBILITY / FOCUS
+   ========================================================= */
 
 a:focus,
 button:focus,
 input:focus,
 textarea:focus {
-    outline: 3px solid #ffbf47;
+    outline: 3px solid var(--focus);
     outline-offset: 3px;
 }
 
 
-/* =========================
-   SKIP LINK
-========================= */
+/* =========================================================
+   6. SKIP LINK
+   ========================================================= */
 
 .skip-link {
     position: absolute;
+
     left: -9999px;
     top: 10px;
+
     z-index: 1000;
+
     padding: 10px 15px;
-    background: #000;
-    color: #fff;
+
+    background: #000000;
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 4px;
 }
 
 .skip-link:focus {
@@ -76,226 +185,593 @@ textarea:focus {
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* =========================================================
+   7. HEADER
+   ========================================================= */
 
 .site-header {
     background: #111827;
-    color: white;
-    padding: 20px 0;
+
+    color: #ffffff;
+
+    padding: 18px 0;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 }
 
 .site-header .container {
     display: flex;
+
+    flex-direction: column;
+
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
+
+    gap: var(--space-md);
 }
 
+
+/* =========================================================
+   8. LOGO
+   ========================================================= */
+
 .logo {
-    color: white;
+    color: #ffffff;
+
     text-decoration: none;
+
     font-size: 1.5rem;
+
     font-weight: bold;
+
+    letter-spacing: 0.5px;
 }
+
+.logo:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   9. NAVIGATION
+   ========================================================= */
 
 .nav-list {
     display: flex;
-    gap: 25px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+
     list-style: none;
 }
 
 .nav-list a {
-    color: white;
+    display: block;
+
+    color: #ffffff;
+
     text-decoration: none;
+
     font-weight: 600;
+
+    padding: 8px 12px;
+
+    border-radius: 6px;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
 }
 
 .nav-list a:hover,
 .nav-list a:focus {
-    text-decoration: underline;
+    color: #ffffff;
+
+    background-color: #1f2937;
+
+    text-decoration: none;
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* =========================================================
+   10. HERO
+   ========================================================= */
 
 .hero {
-    background: #f3f4f6;
+    background:
+        linear-gradient(
+            135deg,
+            #f3f4f6 0%,
+            #ffffff 100%
+        );
+
     min-height: 70vh;
+
     display: flex;
+
     align-items: center;
 }
 
+.hero .container {
+    width: min(90%, var(--max-width));
+}
+
 .hero h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    max-width: 800px;
 }
 
 .hero p {
     max-width: 650px;
+
     font-size: 1.1rem;
 }
 
 .eyebrow {
     font-weight: bold;
+
     text-transform: uppercase;
-    letter-spacing: 1px;
+
+    letter-spacing: 2px;
+
+    color: var(--accent);
+
+    margin-bottom: 10px;
 }
 
 
-/* =========================
-   BUTTONS
-========================= */
+/* =========================================================
+   11. HERO BUTTONS
+   ========================================================= */
 
 .hero-buttons {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 15px;
+
     margin-top: 25px;
 }
 
 .button,
 button {
     display: inline-block;
+
     padding: 12px 20px;
-    border: 2px solid #111827;
-    background: #111827;
-    color: white;
+
+    border: 2px solid var(--primary);
+
+    border-radius: 6px;
+
+    background: var(--primary);
+
+    color: var(--white);
+
     text-decoration: none;
+
     cursor: pointer;
+
+    font: inherit;
+
     font-weight: bold;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.button:hover,
+button:hover {
+    background: var(--primary-light);
+
+    color: var(--white);
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow);
 }
 
 .button.secondary {
     background: transparent;
-    color: #111827;
+
+    color: var(--primary);
+}
+
+.button.secondary:hover {
+    background: var(--primary);
+
+    color: var(--white);
 }
 
 
-/* =========================
-   SECTIONS
-========================= */
+/* =========================================================
+   12. GENERAL SECTIONS
+   ========================================================= */
 
 .section-light {
-    background: #f3f4f6;
+    background: var(--surface);
 }
 
 .page-header {
-    background: #f3f4f6;
+    background:
+        linear-gradient(
+            135deg,
+            #f3f4f6,
+            #ffffff
+        );
+
     padding: 60px 0;
 }
 
 
-/* =========================
-   SKILLS
-========================= */
+/* =========================================================
+   13. SKILLS
+   ========================================================= */
 
 .skills-list {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 12px;
+
     list-style: none;
 }
 
 .skills-list li {
     padding: 10px 16px;
-    background: #111827;
-    color: white;
+
+    background: var(--primary);
+
+    color: var(--white);
+
+    border-radius: 20px;
+
+    font-weight: 600;
+
+    transition:
+        transform var(--transition),
+        background-color var(--transition);
+}
+
+.skills-list li:hover {
+    background: var(--primary-light);
+
+    transform: translateY(-3px);
 }
 
 
-/* =========================
-   PROJECTS
-========================= */
+/* =========================================================
+   14. PROJECT GRID
+   MOBILE FIRST
+   ========================================================= */
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+
+    grid-template-columns: 1fr;
+
+    gap: var(--space-md);
 }
+
+
+/* =========================================================
+   15. PROJECT CARDS
+   ========================================================= */
 
 .project-card {
-    padding: 25px;
-    border: 1px solid #ddd;
-    background: white;
+    padding: var(--space-lg);
+
+    border: 1px solid var(--border);
+
+    background: var(--background);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: var(--shadow-hover);
+
+    border-color: #bbbbbb;
+}
+
+.project-card h3 {
+    color: var(--text);
+}
+
+.project-card p {
+    margin-bottom: 0;
 }
 
 
-/* =========================
-   FORM
-========================= */
+/* =========================================================
+   16. FORM
+   ========================================================= */
 
 form {
+    width: 100%;
+
     max-width: 700px;
+
     margin-top: 30px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: var(--space-md);
 }
 
 label {
     display: block;
+
     margin-bottom: 8px;
+
     font-weight: bold;
+
+    color: var(--text);
 }
 
 input,
 textarea {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #777;
+
+    padding: 13px 15px;
+
+    border: 2px solid #777777;
+
+    border-radius: 6px;
+
+    background: var(--background);
+
+    color: var(--text);
+
     font: inherit;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(0, 86, 179, 0.15);
 }
 
 textarea {
     resize: vertical;
+
+    min-height: 150px;
 }
 
-button:hover {
-    background: #333;
+button {
+    border: none;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* =========================================================
+   17. FOOTER
+   ========================================================= */
 
 .site-footer {
     background: #111827;
-    color: white;
-    padding: 25px 0;
+
+    color: #ffffff;
+
+    padding: 30px 0;
+
     text-align: center;
 }
 
 .site-footer p {
     margin: 0;
+
+    color: #ffffff;
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =========================================================
+   18. DARK MODE HEADER
+   ========================================================= */
 
-@media (max-width: 768px) {
+[data-theme="dark"] .site-header {
+    background: #030712;
+}
+
+[data-theme="dark"] .nav-list a {
+    color: #f3f4f6;
+}
+
+[data-theme="dark"] .nav-list a:hover,
+[data-theme="dark"] .nav-list a:focus {
+    background: #1f2937;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   19. DARK MODE HERO
+   ========================================================= */
+
+[data-theme="dark"] .hero,
+[data-theme="dark"] .page-header {
+    background:
+        linear-gradient(
+            135deg,
+            #111827,
+            #1f2937
+        );
+}
+
+
+/* =========================================================
+   20. DARK MODE CARDS
+   ========================================================= */
+
+[data-theme="dark"] .project-card {
+    background: #1f2937;
+
+    border-color: #374151;
+}
+
+[data-theme="dark"] .project-card h3 {
+    color: #f3f4f6;
+}
+
+
+/* =========================================================
+   21. DARK MODE BUTTONS
+   ========================================================= */
+
+[data-theme="dark"] .button.secondary {
+    color: #f3f4f6;
+
+    border-color: #f3f4f6;
+}
+
+[data-theme="dark"] .button.secondary:hover {
+    background: #f3f4f6;
+
+    color: #111827;
+}
+
+
+/* =========================================================
+   22. THEME TOGGLE BUTTON
+   ========================================================= */
+
+.theme-toggle {
+    padding: 8px 12px;
+
+    border: 2px solid #ffffff;
+
+    border-radius: 6px;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+.theme-toggle:hover {
+    background: #ffffff;
+
+    color: #111827;
+}
+
+
+/* =========================================================
+   23. TABLET
+   ========================================================= */
+
+@media (min-width: 768px) {
 
     .site-header .container {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .nav-list {
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 15px;
     }
 
     .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     section {
-        padding: 50px 0;
+        padding: 80px 0;
+    }
+
+}
+
+
+/* =========================================================
+   24. DESKTOP
+   ========================================================= */
+
+@media (min-width: 1024px) {
+
+    .site-header {
+        padding: 20px 0;
+    }
+
+    .nav-list {
+        gap: 25px;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero {
+        min-height: 75vh;
+    }
+
+}
+
+
+/* =========================================================
+   25. LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    section {
+        padding: 90px 0;
+    }
+
+}
+
+
+/* =========================================================
+   26. REDUCED MOTION
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+
+        animation: none !important;
     }
 
 }
