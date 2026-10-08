@@ -1,0 +1,301 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background-color: #ffffff;
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+.container {
+    width: min(90%, 1100px);
+    margin: auto;
+}
+
+section {
+    padding: 70px 0;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: #0056b3;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 3px solid #ffbf47;
+    outline-offset: 3px;
+}
+
+
+/* =========================
+   SKIP LINK
+========================= */
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 10px;
+    z-index: 1000;
+    padding: 10px 15px;
+    background: #000;
+    color: #fff;
+}
+
+.skip-link:focus {
+    left: 10px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+    background: #111827;
+    color: white;
+    padding: 20px 0;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-list {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background: #f3f4f6;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.hero p {
+    max-width: 650px;
+    font-size: 1.1rem;
+}
+
+.eyebrow {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.button,
+button {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 2px solid #111827;
+    background: #111827;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button.secondary {
+    background: transparent;
+    color: #111827;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section-light {
+    background: #f3f4f6;
+}
+
+.page-header {
+    background: #f3f4f6;
+    padding: 60px 0;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+}
+
+.skills-list li {
+    padding: 10px 16px;
+    background: #111827;
+    color: white;
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    padding: 25px;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+form {
+    max-width: 700px;
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #777;
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button:hover {
+    background: #333;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+    background: #111827;
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .site-header .container {
+        flex-direction: column;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+}
