@@ -1,0 +1,391 @@
+
+/* ==============================
+   1. VARIABLES
+   ============================== */
+
+:root {
+    --primary: #5b4bdb;
+    --primary-hover: #4636c3;
+    --background: #f5f6fc;
+    --surface: #ffffff;
+    --text: #20233a;
+    --text-light: #74788e;
+    --border: #e4e6f0;
+    --success: #17865b;
+    --danger: #c0394b;
+    --radius: 16px;
+    --shadow: 0 12px 40px rgba(35, 38, 75, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--background);
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+    outline: 3px solid #f0ad36;
+    outline-offset: 3px;
+}
+
+.container {
+    width: min(92%, 760px);
+    margin-inline: auto;
+}
+
+/* ==============================
+   2. HEADER
+   ============================== */
+
+.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-content {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.logo {
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.header-caption {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* ==============================
+   3. MAIN APP
+   ============================== */
+
+main {
+    flex: 1;
+}
+
+.todo-app {
+    margin: 55px auto;
+    padding: 36px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.intro {
+    margin-bottom: 32px;
+}
+
+.eyebrow {
+    margin-bottom: 8px;
+    color: var(--primary);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    margin-top: 10px;
+    color: var(--text-light);
+}
+
+/* ==============================
+   4. ADD TASK FORM
+   ============================== */
+
+.task-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+#task-input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 15px;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+}
+
+#task-input::placeholder {
+    color: #9296a8;
+}
+
+#task-input:focus {
+    border-color: var(--primary);
+}
+
+.add-button {
+    padding: 12px 18px;
+    color: #ffffff;
+    background: var(--primary);
+    border: none;
+    border-radius: 9px;
+    font-weight: 700;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.add-button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+/* ==============================
+   5. TASK SUMMARY
+   ============================== */
+
+.task-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 38px;
+}
+
+.task-summary h2 {
+    font-size: 1.3rem;
+}
+
+#task-count {
+    color: var(--text-light);
+    font-size: 0.88rem;
+}
+
+.text-button {
+    padding: 6px 0;
+    color: var(--danger);
+    background: transparent;
+    border: none;
+    font-size: 0.85rem;
+}
+
+.text-button:hover {
+    text-decoration: underline;
+}
+
+/* ==============================
+   6. FILTER BUTTONS
+   ============================== */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 22px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.filter-button {
+    padding: 8px 16px;
+    color: var(--text-light);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.filter-button:hover {
+    color: var(--primary);
+    background: #f0efff;
+}
+
+.filter-button.active {
+    color: var(--primary);
+    background: #eeecff;
+    border-color: #dcd7ff;
+    font-weight: 700;
+}
+
+/* ==============================
+   7. TASK LIST
+   ============================== */
+
+.task-list {
+    display: grid;
+    gap: 12px;
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.task-item:hover {
+    border-color: #c9c4fa;
+}
+
+.task-checkbox {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.task-text {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.task-item.completed .task-text {
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.task-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.action-button {
+    padding: 6px 9px;
+    color: var(--text-light);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    font-size: 0.82rem;
+}
+
+.action-button:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.action-button.delete:hover {
+    color: var(--danger);
+    border-color: var(--danger);
+}
+
+.empty-message {
+    padding: 30px 10px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.storage-note {
+    margin-top: 25px;
+    padding-top: 18px;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+/* ==============================
+   8. FOOTER
+   ============================== */
+
+.site-footer {
+    padding: 22px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* ==============================
+   9. RESPONSIVE DESIGN
+   ============================== */
+
+@media (max-width: 520px) {
+    .header-content {
+        min-height: 65px;
+    }
+
+    .header-caption {
+        font-size: 0.78rem;
+    }
+
+    .todo-app {
+        margin: 28px auto;
+        padding: 22px 16px;
+    }
+
+    .input-row {
+        flex-direction: column;
+    }
+
+    .add-button {
+        width: 100%;
+    }
+
+    .task-item {
+        flex-wrap: wrap;
+    }
+
+    .task-text {
+        flex: 1;
+    }
+
+    .task-actions {
+        margin-left: 30px;
+    }
+
+    .task-summary {
+        align-items: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
